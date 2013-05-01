@@ -11,7 +11,7 @@
   <packaging>jar</packaging>
   <groupId>org.webjars</groupId>
   <artifactId>cometd</artifactId>
-  <version>2.3.1-SNAPSHOT</version>
+  <version>2.3.1</version>
   <name>cometd</name>
   <description>WebJar for cometd</description>
   <url>http://webjars.org</url>
@@ -32,7 +32,7 @@
     <url>http://github.com/webjars/cometd</url>
     <connection>scm:git:https://github.com/webjars/cometd.git</connection>
     <developerConnection>scm:git:https://github.com/webjars/cometd.git</developerConnection>
-    <tag>HEAD</tag>
+    <tag>cometd-2.3.1</tag>
   </scm>
   
   <properties>
@@ -74,20 +74,19 @@
               <target>
                 <echo message="unzip archive..." />
                 <gunzip src="${project.build.directory}/${project.artifactId}.tar.gz" dest="${project.build.directory}" />
-                <untar src="${project.build.directory}/${project.artifactId}.tar" dest="${project.build.directory}"/>
-                <!-- <unjar src="${project.build.directory}/${project.artifactId}-${upstream.version}.jar" dest="${project.build.directory}"/> -->
+                <untar src="${project.build.directory}/${project.artifactId}.tar" dest="${project.build.directory}" />
+                <!-- <unjar src="${project.build.directory}/${project.artifactId}-${upstream.version}.jar" dest="${project.build.directory}" /> -->
                 <echo message="make tmp dir..." />
-                <mkdir dir="${destDir}"/>
-                <mkdir dir="${project.build.directory}/cometd-javascript/common"/>
+                <mkdir dir="${destDir}" />
+                <mkdir dir="${project.build.directory}/cometd-javascript/common" />
                 <echo message="processing cometd-javascript-common-${upstream.version}..." />
-                <unjar src="${project.build.directory}/cometd-${upstream.version}/cometd-javascript/common/target/cometd-javascript-common-${upstream.version}.war"
-                       dest="${project.build.directory}/cometd-javascript/common"/>
+                <unjar src="${project.build.directory}/cometd-${upstream.version}/cometd-javascript/common/target/cometd-javascript-common-${upstream.version}.war" dest="${project.build.directory}/cometd-javascript/common" />
                 <move todir="${destDir}">
                   <fileset dir="${project.build.directory}/cometd-javascript/common/org/cometd">
-                    <include name="**/*.js"/>
+                    <include name="**/*.js" />
                   </fileset>
                   <fileset dir="${project.build.directory}/cometd-javascript/common/org">
-                    <include name="cometd.js"/>
+                    <include name="cometd.js" />
                   </fileset>
                 </move>
 
